@@ -1,9 +1,8 @@
-import {axios} from 'axios';
+import axios from 'axios';
 
 const ADD_COMMENTS = 'ADD_COMMENTS';
 // const TABLE_DATA ="TABLE_DATA"
 const LOG_IN = "LOG_IN";
-const LOG_OUT = "LOG_OUT";
 
 const LOGIN_REQUEST= "LOGIN_REQUEST";
 const LOGIN_SUCCESS = "LOGIN_SUCCESS";
@@ -19,31 +18,7 @@ const company_data = (action_data) => {
           all :action_data 
         }
 }
-// const edit = (e) => {
-//     return {
-//         type:EDIT,
-//         edit:e
-//     }
-// }
-// const remove = (e) => {
-//     return {
-//         type:DELETE,
-//         id:e
-//     }
-//  }
-//  const table_data = (e) => {
-//      console.log(e)
-//      return {
-//         type:TABLE_DATA,
-//         table:e
-//      }
-//  }
-// const loginUser = (payload) => ({
-//     console.log(payload);
-    
-//     type: LOG_IN,
-//     payload,
-// })
+
 
 const loginUser = (payload) => {
     console.log(payload);
@@ -72,7 +47,7 @@ const loginSuccess = (payload) => {
 }
 const loginFailure = (payload) => {
     console.log(payload);
-    
+       
     return {
         type: LOGIN_FAILURE,
             payload
@@ -88,7 +63,7 @@ const isUserAuth = (payload) => {
         .then(res =>{
             console.log(res);
             
-            dispatch(loginSuccess(res.data.taken))
+            dispatch(loginSuccess(res.data.token))
         })
         .catch(err => dispatch(loginFailure(err)))
     }

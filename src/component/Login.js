@@ -15,14 +15,13 @@ class Login extends Component {
         this.setState({[e.target.name]: e.target.value})
     }
     input_submit = (e) => {
-        //e.preventDefault()
+        e.preventDefault()
         // console.log(this.state);
         let payload = {
             username:this.state.username,
             password:this.state.password
         }
         this.props.login(payload)
-        
     }
     render() {
         console.log(this.props.isAuth);
